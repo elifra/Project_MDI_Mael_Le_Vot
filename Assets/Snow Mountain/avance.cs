@@ -7,17 +7,17 @@ public class avance : MonoBehaviour
 {
 
     //public GameObject cible;
-    private Animator anim;
+    //private Animator anim;
     BoxCollider box;
+    private int cpt;
 
     // Start is called before the first frame update
     void Start()
     {
         //GetComponent<NavMeshAgent>().SetDestination(cible.transform.position);
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
         box = GetComponent<BoxCollider>();
-
-        anim.SetBool("isSkying", true);
+        cpt = 0;
     }
 
     /*void setObjectif(GameObject target)
@@ -27,16 +27,19 @@ public class avance : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("entre");
-        if (box.bounds.min.x > other.bounds.min.x && box.bounds.max.x < other.bounds.max.x)
+        Debug.Log("collision");
+        /*if (cpt == 0)
         {
-            anim.SetBool("isSkying", false);
-        }
+            GetComponent<NavMeshAgent>().enabled = false;
+            GetComponent<Animator>().SetTrigger("jump");
+            cpt++;
+        }*/
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(anim.GetBool("isSkying"));
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.01f);
+        transform.SetPositionAndRotation(newPos, transform.rotation);
     }
 }
