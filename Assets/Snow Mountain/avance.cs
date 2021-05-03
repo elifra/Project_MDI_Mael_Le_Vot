@@ -39,7 +39,7 @@ public class avance : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.01f);
+        Vector3 newPos = new Vector3(transform.position.x, transform.position.y, transform.position.z + 0.012f);
         transform.SetPositionAndRotation(newPos, transform.rotation);
     }
 }
